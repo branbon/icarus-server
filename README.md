@@ -8,7 +8,7 @@
 [![GitHub](https://img.shields.io/badge/Repository-mornedhels/icarus--server-blue?logo=github)](https://github.com/mornedhels/icarus-server)
 
 Docker image for the game ICARUS.
-The image is based on the [steamcmd](https://hub.docker.com/r/cm2network/steamcmd/) image and uses supervisor to handle
+The image is based on the [steamcmd](https://hub.docker.com/r/steamcmd/steamcmd/) image and uses supervisor to handle
 startup, automatic updates and cleanup.
 
 ## Environment Variables

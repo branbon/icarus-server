@@ -38,17 +38,18 @@ do_update() {
   if ! download_icarus; then
     warn "Download of ICARUS server failed - aborting update"
     supervisorctl start icarus-server
-    clear_lock "$pidfile"
+    clearLock "$pidfile"
     return
   fi
   set_current_version
   supervisorctl start icarus-server
 
-  clear_lock "$pidfile"
+  clearLock "$pidfile"
 }
 
 download_icarus() {
   $steamcmd_path +@sSteamCmdForcePlatformType windows +force_install_dir "$install_path" +login anonymous +app_update $steam_app_id $STEAMCMD_ARGS +quit
+  /usr/bin/steamcmd +@sSteamCmdForcePlatformType windows +force_install_dir "/opt/icarus/server" +login anonymous +app_update 2089300 --beta "-public" validate +quit
 }
 
 # This works around the `Unable to determine CPU Frequency. Try defining CPU_MHZ.` steamcmd issue.
@@ -121,5 +122,5 @@ set_current_version() {
 
 shutdown() {
   debug "Received signal to shut down icarus-updater"
-  clear_lock "$pidfile"
+  clearLock "$pidfile"
 }

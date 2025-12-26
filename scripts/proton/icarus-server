@@ -51,7 +51,7 @@ run_server() {
 cleanup() {
   debug "cleanup wineserver"
   WINEPREFIX="$install_path/steamapps/compatdata/$steam_app_id/pfx/" /usr/local/bin/files/bin/wineserver -k
-  clear_lock "$icarus_server_pidfile"
+  clearLock "$icarus_server_pidfile"
 }
 
 shutdown() {
