@@ -8,11 +8,11 @@ latest_version=-1
 update() {
   if [ -f "$pidfile" ]; then
     info "Found existing PID file - checking process"
-    check_lock $pidfile
+    checkLock $pidfile
   fi
   trap shutdown SIGINT SIGTERM
   if ! check_for_updates; then
-    if ! check_running "icarus-server"; then
+    if ! checkRunning "icarus-server"; then
       info "ICARUS server is not running - starting"
       supervisorctl start icarus-server
     fi
@@ -30,7 +30,7 @@ update() {
 }
 
 do_update() {
-  if check_running "icarus-server"; then
+  if checkRunning "icarus-server"; then
     supervisorctl stop icarus-server
   fi
   verify_cpu_mhz
