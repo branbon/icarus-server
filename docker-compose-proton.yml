@@ -16,8 +16,8 @@ services:
       - ./game:/opt/icarus
     environment:
       - SERVER_NAME=MornedhelsTest
-      - SERVER_PORT=17777
-      - SERVER_QUERYPORT=27015
+      - SERVER_PORT=17780
+      - SERVER_QUERYPORT=27020
       - PUID=4711
       - PGID=4711
       - UPDATE_CRON=*/30 * * * *
